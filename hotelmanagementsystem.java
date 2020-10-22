@@ -1,12 +1,16 @@
-import java.util.*;
+package HotelMangementSystem;
+
 import javax.swing.*;
 import java.awt.*;
-public class hotelmanagementsystem extends JFrame{
-    
-    hotelmanagementsystem(){
-        setBounds(300,200,1366,565); //it contains size and location both 
+import java.awt.event.*;
+
+public class HotelManagementSystem extends JFrame implements ActionListener{
+
+    HotelManagementSystem(){
+        setBounds(300,200,1366,565); 
+        //it contains size and location both 
         //setSize(400,400); //for setting frame
-       
+
         //setLocation(300,300);
         ImageIcon i1=new ImageIcon(ClassLoader.getSystemResource("icons/first.jpg"));
         JLabel l1=new JLabel(i1);
@@ -22,6 +26,7 @@ public class hotelmanagementsystem extends JFrame{
         b1.setBackground(Color.WHITE);
         b1.setForeground(Color.BLACK);
         b1.setBounds(1150,450,150,50);
+        b1.addActionListener(this);
         l1.add(b1);  //image ke upar add krna h 
 
 
@@ -32,7 +37,7 @@ public class hotelmanagementsystem extends JFrame{
             try{   //gayab ho ra h 
                 Thread.sleep(500); //mili second me tym
             }catch(Exception e){   //vapis aa ra h 
-                
+
             }
             l2.setVisible(true);
             try{
@@ -40,8 +45,11 @@ public class hotelmanagementsystem extends JFrame{
             }catch(Exception e){}
 
         }
+    }
 
-        
+    public void actionPerformed(ActionEvent ae){
+        new Login().setVisible(true);
+        this.setVisible(false);
     }
     public static void main(String[] args){
         new hotelmanagementsystem();
